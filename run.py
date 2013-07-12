@@ -18,7 +18,14 @@ def index():
                            #from_=twilio_from_number, # Must be a valid Twilio number
                            #url=".mp3")
         print "about to send"
-        message = client.sms.messages.create(to=request.form['phone_number'], from_= twilio_from_number, body="hi " + recipient + " your friend " +name + " is calling with a special message")
+        
+        message = client.sms.messages.create(to=request.form['phone_number'], from_= twilio_from_number, body="Hi " + recipient + " your friend " +name + " is calling with a special message")        
+        
+        client.sms.messages.create(
+             to=request.form['phone_number'],
+             from_=twilio_from_number,
+             body='http://images.wikia.com/dragonball/images/f/f3/Rick_astley.gif')
+
         client.sms.messages.create(
              to=request.form['phone_number'],
              from_=twilio_from_number,
@@ -27,12 +34,22 @@ def index():
         client.sms.messages.create(
              to=request.form['phone_number'],
              from_=twilio_from_number,
-             body='http://i288.photobucket.com/albums/ll166/AuraNRGFX/rickroll.gif')
+             body='I just wanna tell you how I\'m feelin. Gotta make you understand. ')
 
         client.sms.messages.create(
              to=request.form['phone_number'],
              from_=twilio_from_number,
-             body='Sent from twilio.  If you want to rickroll your friends, [URL HERE]')
+             body='Never gonna give you up. Never gonna let you down. Never gonna run around and desert you. ')
+
+        client.sms.messages.create(
+             to=request.form['phone_number'],
+             from_=twilio_from_number,
+             body='Never gonna make you cry. Never gonna say goodbye. Never going to tell a lie, and hurt you.')
+
+        client.sms.messages.create(
+             to=request.form['phone_number'],
+             from_=twilio_from_number,
+             body='Sent with love, using Twilio.  If you want to rickroll your friends, click [URL HERE]')
         print "sent"
     return render_template('simple.html')
  
