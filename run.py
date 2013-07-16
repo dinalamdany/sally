@@ -4,8 +4,8 @@ import time
  
 twilio_from_number = '6199425133'
 # put in your account sid and token
-twilio_account_sid = ''
-twilio_auth_token = ''
+twilio_account_sid = 'AC9853752e40599cb7fc11134c166c6866'
+twilio_auth_token = '5415da2396c51ffb05d8e84938a9fef1'
  
  
 app = Flask(__name__)
@@ -16,9 +16,6 @@ def index():
     if request.method == 'POST':
         name = request.form["name"]
         recipient = request.form["recipient"]
-        #call = client.calls.create(to=request.form['phone_number'], 
-                           #from_=twilio_from_number, # Must be a valid Twilio number
-                           #url=".mp3")
         print "about to send"
         
         message = client.sms.messages.create(to=request.form['phone_number'], from_= twilio_from_number, body="Hi " + recipient + " your friend " +name + " is calling with a special message")        
@@ -29,6 +26,10 @@ def index():
              to=request.form['phone_number'],
              from_=twilio_from_number,
              body='http://images.wikia.com/dragonball/images/f/f3/Rick_astley.gif')
+
+        call = client.calls.create(url="http://demo.twilio.com/docs/voice.xml",
+            to= request.form['phone_number'],
+            from_="6199425133")
 
         time.sleep(1)
 
