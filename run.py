@@ -4,8 +4,8 @@ import time
  
 twilio_from_number = '6199425133'
 # put in your account sid and token
-twilio_account_sid = 'AC9853752e40599cb7fc11134c166c6866'
-twilio_auth_token = '5415da2396c51ffb05d8e84938a9fef1'
+twilio_account_sid = ''
+twilio_auth_token = ''
  
  
 app = Flask(__name__)
